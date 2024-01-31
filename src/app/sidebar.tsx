@@ -5,14 +5,14 @@ import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 export default function Sidebar() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
   return (
     <header className="flex fixed bg-gray-900">
       <nav
         className={` ${
-          open ? "w-72 " : "w-20"
+          open ? "w-72 " : "w-16 md:w-20 lg:w-20"
         } bg-dark-purple h-screen  pt-8 relative duration-300 border-x-2 border-x-blue-950`}
       >
         <svg

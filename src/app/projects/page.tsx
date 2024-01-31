@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Teste() {
   return (
     <div className="flex h-screen">
-      <div className="m-auto container lg:pr-20  md:pt-20 md:pr-20 md:pb-20 md:pl-40 text-xl">
+      <div className="m-auto container lg:pr-20  md:pt-20 md:pr-20 md:pb-20 md:pl-40 text-base md:text-xl lg:text-xl">
         <div>
           <h1 className="text-white text-4xl mb-6 font-bold">My Projects</h1>
           <p>
@@ -21,10 +21,10 @@ export default function Teste() {
         <div className="flex flex-col">
           <h2 className="text-white text-2xl mb-6 font-bold">Back-end</h2>
           <div className="flex flex-col gap-8">
-            <div className="flex gap-8">
+            <div className="flex md:flex-row lg:flex-row flex-col gap-8">
               <div className="flex-1 flex flex-col gap-4 border-2 border-blue-800 rounded-2xl h-140 p-6 ">
                 <Image
-                  className="w-full h-52 rounded-xl"
+                  className="w-full  h-36 md:h-52 lg:h-52 rounded-xl"
                   src="/banner.jpeg"
                   height={500}
                   width={500}
@@ -42,7 +42,7 @@ export default function Teste() {
                       Visit
                     </Link>
                   </button>
-                  <button className="border-2 text-white border-blue-800 p-2 rounded-xl pl-10 pr-10 hover:text-black hover:bg-white">
+                  <button className="border-2 text-white border-blue-800 p-0 md:p-2 lg:p-2 rounded-xl md:pl-10 lg:pl-10 md:pr-10 lg:pr-10 pl-5 pr-5 hover:text-black hover:bg-white">
                     <Link href="#" target="_blank">
                       Source-code
                     </Link>
@@ -51,7 +51,7 @@ export default function Teste() {
               </div>
               <div className="flex-1 flex flex-col gap-4 border-2 border-blue-800 rounded-2xl h-140 p-6 ">
                 <Image
-                  className="w-full h-52 rounded-xl"
+                  className="w-full  h-36 md:h-52 lg:h-52 rounded-xl"
                   src="/banner.jpeg"
                   height={500}
                   width={500}
@@ -69,7 +69,7 @@ export default function Teste() {
                       Visit
                     </Link>
                   </button>
-                  <button className="border-2 text-white border-blue-800 p-2 rounded-xl pl-10 pr-10 hover:text-black hover:bg-white">
+                  <button className="border-2 text-white border-blue-800 p-0 md:p-2 lg:p-2 rounded-xl md:pl-10 lg:pl-10 md:pr-10 lg:pr-10 pl-5 pr-5 hover:text-black hover:bg-white">
                     <Link href="#" target="_blank">
                       Source-code
                     </Link>
@@ -77,10 +77,10 @@ export default function Teste() {
                 </div>
               </div>
             </div>
-            <div className="flex gap-8">
+            <div className="flex md:flex-row lg:flex-row flex-col gap-8">
               <div className="flex-1 flex flex-col gap-4 border-2 border-blue-800 rounded-2xl h-140 p-6 ">
                 <Image
-                  className="w-full h-52 rounded-xl"
+                  className="w-full  h-36 md:h-52 lg:h-52 rounded-xl"
                   src="/banner.jpeg"
                   height={500}
                   width={500}
@@ -98,7 +98,7 @@ export default function Teste() {
                       Visit
                     </Link>
                   </button>
-                  <button className="border-2 text-white border-blue-800 p-2 rounded-xl pl-10 pr-10 hover:text-black hover:bg-white">
+                  <button className="border-2 text-white border-blue-800 p-0 md:p-2 lg:p-2 rounded-xl md:pl-10 lg:pl-10 md:pr-10 lg:pr-10 pl-5 pr-5 hover:text-black hover:bg-white">
                     <Link href="#" target="_blank">
                       Source-code
                     </Link>
@@ -107,7 +107,7 @@ export default function Teste() {
               </div>
               <div className="flex-1 flex flex-col gap-4 border-2 border-blue-800 rounded-2xl h-140 p-6 ">
                 <Image
-                  className="w-full h-52 rounded-xl"
+                  className="w-full  h-36 md:h-52 lg:h-52 rounded-xl"
                   src="/banner.jpeg"
                   height={500}
                   width={500}
@@ -125,7 +125,7 @@ export default function Teste() {
                       Visit
                     </Link>
                   </button>
-                  <button className="border-2 text-white border-blue-800 p-2 rounded-xl pl-10 pr-10 hover:text-black hover:bg-white">
+                  <button className="border-2 text-white border-blue-800 p-0 md:p-2 lg:p-2 rounded-xl md:pl-10 lg:pl-10 md:pr-10 lg:pr-10 pl-5 pr-5 hover:text-black hover:bg-white">
                     <Link href="#" target="_blank">
                       Source-code
                     </Link>
