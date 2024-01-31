@@ -1,15 +1,12 @@
-"use client";
-
-import React, { useState } from "react";
-import Sidebar from "./sidebar";
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
+ "use client";
 import HomePage from "./homePage";
+import Head from "next/head";
 
 export default function Home() {
-  const router = useRouter();
-  const pathname = usePathname();
   return (
-    <HomePage />
+    <>
+      
+      <HomePage />
+    </>
   );
 }
