@@ -2,17 +2,14 @@
 
 import React, { useState } from "react";
 import Sidebar from "./sidebar";
-import Main from "./main";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import HomePage from "./homePage";
 
 export default function Home() {
+  const router = useRouter();
+  const pathname = usePathname();
   return (
-    <div className="flex h-screen">
-      <Sidebar />
-      
-      <div className="h-full container w-full lg:pr-20  md:pt-20 md:pr-20 md:pb-20 md:pl-40 ">
-        <Main/>
-      </div>
-    </div>
+    <HomePage />
   );
 }

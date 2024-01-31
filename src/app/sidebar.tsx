@@ -1,39 +1,60 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
-  const Menus = [
-    { title: "Dashboard", link: "/teste", src: "/home.svg" },
-    { title: "Teste", link: "/teste", src: "/home.svg" },
-    { title: "Inbox", link: "/teste", src: "/home.svg" },
-    { title: "Accounts", link: "/teste", src: "/home.svg", gap: true },
-    { title: "Schedule ", link: "/teste", src: "/home.svg" },
-    { title: "Search", link: "/teste", src: "/home.svg" },
-    { title: "Analytics", link: "/teste", src: "/home.svg" },
-    { title: "Files ", link: "/teste", src: "/home.svg", gap: true },
-    { title: "Setting", link: "/teste", src: "/home.svg" },
-  ];
+  const pathname = usePathname();
 
   return (
-    <div className="flex fixed bg-gray-900">
-      <div
+    <header className="flex fixed bg-gray-900">
+      <nav
         className={` ${
-          open ? "w-72" : "w-20 "
-        } bg-dark-purple h-screen p-5  pt-8 relative duration-300 border-x-2 border-x-blue-950`}
+          open ? "w-72 " : "w-20"
+        } bg-dark-purple h-screen  pt-8 relative duration-300 border-x-2 border-x-blue-950`}
       >
-        <svg className={`bg-white filter fill-blue-900 h-8" absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
+        <svg
+          className={`bg-white filter fill-blue-900 h-8" absolute cursor-pointer right-3 top-9 w-7 border-dark-purple                                                                                                                        
            border-2 rounded-full  ${!open && "rotate-180"}`}
-          onClick={() => setOpen(!open)} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)" stroke="#1e3a8a"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 6V18M12 6L7 11M12 6L17 11" stroke="#1e3a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-       
-        <div className="flex gap-x-4 items-center">
-          
+          onClick={() => setOpen(!open)}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          transform="rotate(90)"
+          stroke="#1e3a8a"
+        >
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            {" "}
+            <path
+              d="M12 6V18M12 6L7 11M12 6L17 11"
+              stroke="#1e3a8a"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></path>{" "}
+          </g>
+        </svg>
+
+        <div
+          className={`flex gap-x-4 justify-center items-center ${
+            !open && "gap-x-0 justify-normal"
+          }`}
+        >
           <Image
-            src="/banner-luan.png" width={500} height={500} alt=""
+            src="/banner-luan.png"
+            width={500}
+            height={500}
+            alt=""
             className={`w-10 h-10 cursor-pointer duration-500 ${
-              open && "rotate-[360deg]"
+              open && "rotate-[360deg] justify-normal"
             }`}
           />
           <h1
@@ -46,7 +67,11 @@ export default function Sidebar() {
         </div>
         <ul className="pt-6">
           <li className="flex flex-col rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4">
-            <div className="flex w-full items-center gap-10 mb-5">
+            <div
+              className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5  ${
+                pathname === "/" ? "bg-gray-800 " : "text-white"
+              } ${open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"}`}
+            >
               <svg
                 className="filter fill-blue-900 w-8 h-8"
                 version="1.1"
@@ -54,11 +79,11 @@ export default function Sidebar() {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 495.398 495.398"
               >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                 <g
                   id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 ></g>
                 <g id="SVGRepo_iconCarrier">
                   {" "}
@@ -76,206 +101,290 @@ export default function Sidebar() {
                 </g>
               </svg>
               <Link
-                href="/teste"
+                href="/"
                 className={`${
                   !open && "hidden"
-                } origin-left duration-200 text-xl`}
+                } origin-left duration-200 text-xl ${
+                  pathname === "/" ? "text-blue-500" : "text-white"
+                }`}
               >
-                Teste
+                Home
               </Link>
             </div>
-            <div className="flex w-full items-center gap-10 mb-5">
-              <svg
-                className="filter fill-blue-900 w-8 h-8"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            <div className="flex flex-col w-full items-center">
+              <div className="flex w-full items-center gap-10 mb-5"></div>
+              <div
+                className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5  ${
+                  pathname === "/About me" ? "bg-gray-800 " : "text-white"
+                } ${open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"}`}
               >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <path
-                    d="M12 10.4V20M12 10.4C12 8.15979 12 7.03969 11.564 6.18404C11.1805 5.43139 10.5686 4.81947 9.81596 4.43597C8.96031 4 7.84021 4 5.6 4H4.6C4.03995 4 3.75992 4 3.54601 4.10899C3.35785 4.20487 3.20487 4.35785 3.10899 4.54601C3 4.75992 3 5.03995 3 5.6V16.4C3 16.9601 3 17.2401 3.10899 17.454C3.20487 17.6422 3.35785 17.7951 3.54601 17.891C3.75992 18 4.03995 18 4.6 18H7.54668C8.08687 18 8.35696 18 8.61814 18.0466C8.84995 18.0879 9.0761 18.1563 9.29191 18.2506C9.53504 18.3567 9.75977 18.5065 10.2092 18.8062L12 20M12 10.4C12 8.15979 12 7.03969 12.436 6.18404C12.8195 5.43139 13.4314 4.81947 14.184 4.43597C15.0397 4 16.1598 4 18.4 4H19.4C19.9601 4 20.2401 4 20.454 4.10899C20.6422 4.20487 20.7951 4.35785 20.891 4.54601C21 4.75992 21 5.03995 21 5.6V16.4C21 16.9601 21 17.2401 20.891 17.454C20.7951 17.6422 20.6422 17.7951 20.454 17.891C20.2401 18 19.9601 18 19.4 18H16.4533C15.9131 18 15.643 18 15.3819 18.0466C15.15 18.0879 14.9239 18.1563 14.7081 18.2506C14.465 18.3567 14.2402 18.5065 13.7908 18.8062L12 20"
-                    stroke="#000000"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>{" "}
-                </g>
-              </svg>
-              <Link
-                href="/teste"
-                className={`${
-                  !open && "hidden"
-                } origin-left duration-200 text-xl`}
+                <svg
+                  className="filter fill-blue-900 w-8 h-8"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <path
+                      d="M19.8978 16H7.89778C6.96781 16 6.50282 16 6.12132 16.1022C5.08604 16.3796 4.2774 17.1883 4 18.2235"
+                      stroke="#000000"
+                      strokeWidth="1.5"
+                    ></path>{" "}
+                    <path
+                      d="M8 7H16"
+                      stroke="#000000"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    ></path>{" "}
+                    <path
+                      d="M8 10.5H13"
+                      stroke="#000000"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    ></path>{" "}
+                    <path
+                      d="M13 16V19.5309C13 19.8065 13 19.9443 12.9051 20C12.8103 20.0557 12.6806 19.9941 12.4211 19.8708L11.1789 19.2808C11.0911 19.2391 11.0472 19.2182 11 19.2182C10.9528 19.2182 10.9089 19.2391 10.8211 19.2808L9.57889 19.8708C9.31943 19.9941 9.18971 20.0557 9.09485 20C9 19.9443 9 19.8065 9 19.5309V16.45"
+                      stroke="#000000"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    ></path>{" "}
+                    <path
+                      d="M10 22C7.17157 22 5.75736 22 4.87868 21.1213C4 20.2426 4 18.8284 4 16V8C4 5.17157 4 3.75736 4.87868 2.87868C5.75736 2 7.17157 2 10 2H14C16.8284 2 18.2426 2 19.1213 2.87868C20 3.75736 20 5.17157 20 8M14 22C16.8284 22 18.2426 22 19.1213 21.1213C20 20.2426 20 18.8284 20 16V12"
+                      stroke="#000000"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    ></path>{" "}
+                  </g>
+                </svg>
+                <Link
+                  href="/about"
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-200 text-xl`}
+                >
+                  About me
+                </Link>
+              </div>
+              <div
+                className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5  ${
+                  pathname === "/cv" ? "bg-gray-800 " : "text-white"
+                } ${open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"}`}
               >
-                Teste
-              </Link>
+                <svg
+                  className="filter fill-blue-900 w-8 h-8"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <path
+                      d="M12 10.4V20M12 10.4C12 8.15979 12 7.03969 11.564 6.18404C11.1805 5.43139 10.5686 4.81947 9.81596 4.43597C8.96031 4 7.84021 4 5.6 4H4.6C4.03995 4 3.75992 4 3.54601 4.10899C3.35785 4.20487 3.20487 4.35785 3.10899 4.54601C3 4.75992 3 5.03995 3 5.6V16.4C3 16.9601 3 17.2401 3.10899 17.454C3.20487 17.6422 3.35785 17.7951 3.54601 17.891C3.75992 18 4.03995 18 4.6 18H7.54668C8.08687 18 8.35696 18 8.61814 18.0466C8.84995 18.0879 9.0761 18.1563 9.29191 18.2506C9.53504 18.3567 9.75977 18.5065 10.2092 18.8062L12 20M12 10.4C12 8.15979 12 7.03969 12.436 6.18404C12.8195 5.43139 13.4314 4.81947 14.184 4.43597C15.0397 4 16.1598 4 18.4 4H19.4C19.9601 4 20.2401 4 20.454 4.10899C20.6422 4.20487 20.7951 4.35785 20.891 4.54601C21 4.75992 21 5.03995 21 5.6V16.4C21 16.9601 21 17.2401 20.891 17.454C20.7951 17.6422 20.6422 17.7951 20.454 17.891C20.2401 18 19.9601 18 19.4 18H16.4533C15.9131 18 15.643 18 15.3819 18.0466C15.15 18.0879 14.9239 18.1563 14.7081 18.2506C14.465 18.3567 14.2402 18.5065 13.7908 18.8062L12 20"
+                      stroke="#000000"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></path>{" "}
+                  </g>
+                </svg>
+                <Link
+                  href="/cv"
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-200 text-xl`}
+                >
+                  CV
+                </Link>
+              </div>
+              <div
+                className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5  ${
+                  pathname === "/projects" ? "bg-gray-800 " : "text-white"
+                } ${open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"}`}
+              >
+                <svg
+                  className="filter fill-blue-900 w-8 h-8"
+                  fill="#000000"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  id="folder-code"
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path d="M20,6H13.41L11,3.59A2,2,0,0,0,9.59,3H4A2,2,0,0,0,2,5V19a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V8A2,2,0,0,0,20,6Zm-9.29,8.29a1,1,0,0,1,0,1.42,1,1,0,0,1-1.42,0l-2-2a1,1,0,0,1,0-1.42l2-2a1,1,0,0,1,1.42,1.42L9.41,13Zm6-.58-2,2a1,1,0,0,1-1.42,0,1,1,0,0,1,0-1.42L14.59,13l-1.3-1.29a1,1,0,0,1,1.42-1.42l2,2A1,1,0,0,1,16.71,13.71Z"></path>
+                  </g>
+                </svg>
+                <Link
+                  href="/projects"
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-200 text-xl`}
+                >
+                  Projects
+                </Link>
+              </div>
             </div>
-            <div className="flex w-full items-center gap-10 mb-5">
-              <svg
-                className="filter fill-blue-900 w-8 h-8"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            <div className="flex flex-col w-full items-center">
+              <div className="flex w-full items-center gap-10 mb-5"></div>
+              <div
+                className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5   ${
+                  open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"
+                }`}
               >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <path
-                    d="M18 6V10.8528C18 11.1429 18 11.2879 17.9051 11.3465C17.8103 11.4051 17.6806 11.3403 17.4211 11.2106L16.1789 10.5894C16.0911 10.5456 16.0472 10.5236 16 10.5236C15.9528 10.5236 15.9089 10.5456 15.8211 10.5894L14.5789 11.2106C14.3194 11.3403 14.1897 11.4051 14.0949 11.3465C14 11.2879 14 11.1429 14 10.8528V6"
-                    stroke="#1C274C"
-                    stroke-width="1.5"
-                  ></path>{" "}
-                  <path
-                    d="M22 11.7979C22 9.16554 22 7.84935 21.2305 6.99383C21.1598 6.91514 21.0849 6.84024 21.0062 6.76946C20.1506 6 18.8345 6 16.2021 6H15.8284C14.6747 6 14.0979 6 13.5604 5.84678C13.2651 5.7626 12.9804 5.64471 12.7121 5.49543C12.2237 5.22367 11.8158 4.81578 11 4L10.4497 3.44975C10.1763 3.17633 10.0396 3.03961 9.89594 2.92051C9.27652 2.40704 8.51665 2.09229 7.71557 2.01738C7.52976 2 7.33642 2 6.94975 2C6.06722 2 5.62595 2 5.25839 2.06935C3.64031 2.37464 2.37464 3.64031 2.06935 5.25839C2 5.62595 2 6.06722 2 6.94975M21.9913 16C21.9554 18.4796 21.7715 19.8853 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V11"
-                    stroke="#1C274C"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  ></path>{" "}
-                </g>
-              </svg>
-              <Link
-                href="/teste"
-                className={`${
-                  !open && "hidden"
-                } origin-left duration-200 text-xl`}
+                <svg
+                  className="filter fill-blue-900 w-8 h-8"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#000000"
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <title>github</title>{" "}
+                    <rect width="24" height="24" fill="none"></rect>{" "}
+                    <path d="M12,2A10,10,0,0,0,8.84,21.5c.5.08.66-.23.66-.5V19.31C6.73,19.91,6.14,18,6.14,18A2.69,2.69,0,0,0,5,16.5c-.91-.62.07-.6.07-.6a2.1,2.1,0,0,1,1.53,1,2.15,2.15,0,0,0,2.91.83,2.16,2.16,0,0,1,.63-1.34C8,16.17,5.62,15.31,5.62,11.5a3.87,3.87,0,0,1,1-2.71,3.58,3.58,0,0,1,.1-2.64s.84-.27,2.75,1a9.63,9.63,0,0,1,5,0c1.91-1.29,2.75-1,2.75-1a3.58,3.58,0,0,1,.1,2.64,3.87,3.87,0,0,1,1,2.71c0,3.82-2.34,4.66-4.57,4.91a2.39,2.39,0,0,1,.69,1.85V21c0,.27.16.59.67.5A10,10,0,0,0,12,2Z"></path>{" "}
+                  </g>
+                </svg>
+                <Link
+                  href="https://github.com/luanfsouza"
+                  target="_blank"
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-200 text-xl`}
+                >
+                  Github
+                </Link>
+              </div>
+              <div
+                className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5   ${
+                  open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"
+                }`}
               >
-                Teste
-              </Link>
-            </div>
-            <div className="flex w-full items-center gap-10 mb-5">
-              <svg
-                className="filter fill-blue-900 w-8 h-8"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="#000000"
+                <svg
+                  className="filter fill-blue-900 w-8 h-8"
+                  fill="#000000"
+                  height="200px"
+                  width="200px"
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="-143 145 512 512"
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <path d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z M41.4,508.1H-8.5V348.4h49.9V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7 c18.4,0,29.7,11.9,30.1,27.7C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4 c-14.9,0-23.2,10-27,19.6c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6 c35.5,0,63.3,23,63.3,72.4V508.1z"></path>{" "}
+                  </g>
+                </svg>
+                <Link
+                  href="https://www.linkedin.com/in/luanzsouza/"
+                  target="_blank"
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-200 text-xl`}
+                >
+                  Linkedin
+                </Link>
+              </div>
+              <div
+                className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5   ${
+                  open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"
+                }`}
               >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <title>github</title>{" "}
-                  <rect width="24" height="24" fill="none"></rect>{" "}
-                  <path d="M12,2A10,10,0,0,0,8.84,21.5c.5.08.66-.23.66-.5V19.31C6.73,19.91,6.14,18,6.14,18A2.69,2.69,0,0,0,5,16.5c-.91-.62.07-.6.07-.6a2.1,2.1,0,0,1,1.53,1,2.15,2.15,0,0,0,2.91.83,2.16,2.16,0,0,1,.63-1.34C8,16.17,5.62,15.31,5.62,11.5a3.87,3.87,0,0,1,1-2.71,3.58,3.58,0,0,1,.1-2.64s.84-.27,2.75,1a9.63,9.63,0,0,1,5,0c1.91-1.29,2.75-1,2.75-1a3.58,3.58,0,0,1,.1,2.64,3.87,3.87,0,0,1,1,2.71c0,3.82-2.34,4.66-4.57,4.91a2.39,2.39,0,0,1,.69,1.85V21c0,.27.16.59.67.5A10,10,0,0,0,12,2Z"></path>{" "}
-                </g>
-              </svg>
-              <Link
-                href="/teste"
-                className={`${
-                  !open && "hidden"
-                } origin-left duration-200 text-xl`}
+                <svg
+                  className="filter fill-blue-900 w-8 h-8"
+                  fill="#000000"
+                  viewBox="0 0 32 32"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <title>discord</title>{" "}
+                    <path d="M20.992 20.163c-1.511-0.099-2.699-1.349-2.699-2.877 0-0.051 0.001-0.102 0.004-0.153l-0 0.007c-0.003-0.048-0.005-0.104-0.005-0.161 0-1.525 1.19-2.771 2.692-2.862l0.008-0c1.509 0.082 2.701 1.325 2.701 2.847 0 0.062-0.002 0.123-0.006 0.184l0-0.008c0.003 0.050 0.005 0.109 0.005 0.168 0 1.523-1.191 2.768-2.693 2.854l-0.008 0zM11.026 20.163c-1.511-0.099-2.699-1.349-2.699-2.877 0-0.051 0.001-0.102 0.004-0.153l-0 0.007c-0.003-0.048-0.005-0.104-0.005-0.161 0-1.525 1.19-2.771 2.692-2.862l0.008-0c1.509 0.082 2.701 1.325 2.701 2.847 0 0.062-0.002 0.123-0.006 0.184l0-0.008c0.003 0.048 0.005 0.104 0.005 0.161 0 1.525-1.19 2.771-2.692 2.862l-0.008 0zM26.393 6.465c-1.763-0.832-3.811-1.49-5.955-1.871l-0.149-0.022c-0.005-0.001-0.011-0.002-0.017-0.002-0.035 0-0.065 0.019-0.081 0.047l-0 0c-0.234 0.411-0.488 0.924-0.717 1.45l-0.043 0.111c-1.030-0.165-2.218-0.259-3.428-0.259s-2.398 0.094-3.557 0.275l0.129-0.017c-0.27-0.63-0.528-1.142-0.813-1.638l0.041 0.077c-0.017-0.029-0.048-0.047-0.083-0.047-0.005 0-0.011 0-0.016 0.001l0.001-0c-2.293 0.403-4.342 1.060-6.256 1.957l0.151-0.064c-0.017 0.007-0.031 0.019-0.040 0.034l-0 0c-2.854 4.041-4.562 9.069-4.562 14.496 0 0.907 0.048 1.802 0.141 2.684l-0.009-0.11c0.003 0.029 0.018 0.053 0.039 0.070l0 0c2.14 1.601 4.628 2.891 7.313 3.738l0.176 0.048c0.008 0.003 0.018 0.004 0.028 0.004 0.032 0 0.060-0.015 0.077-0.038l0-0c0.535-0.72 1.044-1.536 1.485-2.392l0.047-0.1c0.006-0.012 0.010-0.027 0.010-0.043 0-0.041-0.026-0.075-0.062-0.089l-0.001-0c-0.912-0.352-1.683-0.727-2.417-1.157l0.077 0.042c-0.029-0.017-0.048-0.048-0.048-0.083 0-0.031 0.015-0.059 0.038-0.076l0-0c0.157-0.118 0.315-0.24 0.465-0.364 0.016-0.013 0.037-0.021 0.059-0.021 0.014 0 0.027 0.003 0.038 0.008l-0.001-0c2.208 1.061 4.8 1.681 7.536 1.681s5.329-0.62 7.643-1.727l-0.107 0.046c0.012-0.006 0.025-0.009 0.040-0.009 0.022 0 0.043 0.008 0.059 0.021l-0-0c0.15 0.124 0.307 0.248 0.466 0.365 0.023 0.018 0.038 0.046 0.038 0.077 0 0.035-0.019 0.065-0.046 0.082l-0 0c-0.661 0.395-1.432 0.769-2.235 1.078l-0.105 0.036c-0.036 0.014-0.062 0.049-0.062 0.089 0 0.016 0.004 0.031 0.011 0.044l-0-0.001c0.501 0.96 1.009 1.775 1.571 2.548l-0.040-0.057c0.017 0.024 0.046 0.040 0.077 0.040 0.010 0 0.020-0.002 0.029-0.004l-0.001 0c2.865-0.892 5.358-2.182 7.566-3.832l-0.065 0.047c0.022-0.016 0.036-0.041 0.039-0.069l0-0c0.087-0.784 0.136-1.694 0.136-2.615 0-5.415-1.712-10.43-4.623-14.534l0.052 0.078c-0.008-0.016-0.022-0.029-0.038-0.036l-0-0z"></path>{" "}
+                  </g>
+                </svg>
+                <Link
+                  href="/teste"
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-200 text-xl`}
+                >
+                  Discord
+                </Link>
+              </div>
+
+              <div
+                className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5   ${
+                  open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"
+                }`}
               >
-                Teste
-              </Link>
-            </div>
-            <div className="flex w-full items-center gap-10 mb-5">
-              <svg
-                className="filter fill-blue-900 w-8 h-8"
-                fill="#000000"
-                viewBox="0 0 32 32"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <title>discord</title>{" "}
-                  <path d="M20.992 20.163c-1.511-0.099-2.699-1.349-2.699-2.877 0-0.051 0.001-0.102 0.004-0.153l-0 0.007c-0.003-0.048-0.005-0.104-0.005-0.161 0-1.525 1.19-2.771 2.692-2.862l0.008-0c1.509 0.082 2.701 1.325 2.701 2.847 0 0.062-0.002 0.123-0.006 0.184l0-0.008c0.003 0.050 0.005 0.109 0.005 0.168 0 1.523-1.191 2.768-2.693 2.854l-0.008 0zM11.026 20.163c-1.511-0.099-2.699-1.349-2.699-2.877 0-0.051 0.001-0.102 0.004-0.153l-0 0.007c-0.003-0.048-0.005-0.104-0.005-0.161 0-1.525 1.19-2.771 2.692-2.862l0.008-0c1.509 0.082 2.701 1.325 2.701 2.847 0 0.062-0.002 0.123-0.006 0.184l0-0.008c0.003 0.048 0.005 0.104 0.005 0.161 0 1.525-1.19 2.771-2.692 2.862l-0.008 0zM26.393 6.465c-1.763-0.832-3.811-1.49-5.955-1.871l-0.149-0.022c-0.005-0.001-0.011-0.002-0.017-0.002-0.035 0-0.065 0.019-0.081 0.047l-0 0c-0.234 0.411-0.488 0.924-0.717 1.45l-0.043 0.111c-1.030-0.165-2.218-0.259-3.428-0.259s-2.398 0.094-3.557 0.275l0.129-0.017c-0.27-0.63-0.528-1.142-0.813-1.638l0.041 0.077c-0.017-0.029-0.048-0.047-0.083-0.047-0.005 0-0.011 0-0.016 0.001l0.001-0c-2.293 0.403-4.342 1.060-6.256 1.957l0.151-0.064c-0.017 0.007-0.031 0.019-0.040 0.034l-0 0c-2.854 4.041-4.562 9.069-4.562 14.496 0 0.907 0.048 1.802 0.141 2.684l-0.009-0.11c0.003 0.029 0.018 0.053 0.039 0.070l0 0c2.14 1.601 4.628 2.891 7.313 3.738l0.176 0.048c0.008 0.003 0.018 0.004 0.028 0.004 0.032 0 0.060-0.015 0.077-0.038l0-0c0.535-0.72 1.044-1.536 1.485-2.392l0.047-0.1c0.006-0.012 0.010-0.027 0.010-0.043 0-0.041-0.026-0.075-0.062-0.089l-0.001-0c-0.912-0.352-1.683-0.727-2.417-1.157l0.077 0.042c-0.029-0.017-0.048-0.048-0.048-0.083 0-0.031 0.015-0.059 0.038-0.076l0-0c0.157-0.118 0.315-0.24 0.465-0.364 0.016-0.013 0.037-0.021 0.059-0.021 0.014 0 0.027 0.003 0.038 0.008l-0.001-0c2.208 1.061 4.8 1.681 7.536 1.681s5.329-0.62 7.643-1.727l-0.107 0.046c0.012-0.006 0.025-0.009 0.040-0.009 0.022 0 0.043 0.008 0.059 0.021l-0-0c0.15 0.124 0.307 0.248 0.466 0.365 0.023 0.018 0.038 0.046 0.038 0.077 0 0.035-0.019 0.065-0.046 0.082l-0 0c-0.661 0.395-1.432 0.769-2.235 1.078l-0.105 0.036c-0.036 0.014-0.062 0.049-0.062 0.089 0 0.016 0.004 0.031 0.011 0.044l-0-0.001c0.501 0.96 1.009 1.775 1.571 2.548l-0.040-0.057c0.017 0.024 0.046 0.040 0.077 0.040 0.010 0 0.020-0.002 0.029-0.004l-0.001 0c2.865-0.892 5.358-2.182 7.566-3.832l-0.065 0.047c0.022-0.016 0.036-0.041 0.039-0.069l0-0c0.087-0.784 0.136-1.694 0.136-2.615 0-5.415-1.712-10.43-4.623-14.534l0.052 0.078c-0.008-0.016-0.022-0.029-0.038-0.036l-0-0z"></path>{" "}
-                </g>
-              </svg>
-              <Link
-                href="/teste"
-                className={`${
-                  !open && "hidden"
-                } origin-left duration-200 text-xl`}
-              >
-                Teste
-              </Link>
-            </div>
-            <div className="flex w-full items-center gap-10 mb-5">
-              <svg
-                className="filter fill-blue-900 w-8 h-8"
-                fill="#000000"
-                height="200px"
-                width="200px"
-                version="1.1"
-                id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="-143 145 512 512"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <path d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z M41.4,508.1H-8.5V348.4h49.9V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7 c18.4,0,29.7,11.9,30.1,27.7C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4 c-14.9,0-23.2,10-27,19.6c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6 c35.5,0,63.3,23,63.3,72.4V508.1z"></path>{" "}
-                </g>
-              </svg>
-              <Link
-                href="/teste"
-                className={`${
-                  !open && "hidden"
-                } origin-left duration-200 text-xl`}
-              >
-                Teste
-              </Link>
-            </div>
-            <div className="flex w-full items-center gap-10 mb-5">
-              <svg
-                className="filter fill-blue-900 w-8 h-8"
-                fill="#000000"
-                viewBox="0 0 1920 1920"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <path
-                    d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
-                    fill-rule="evenodd"
-                  ></path>{" "}
-                </g>
-              </svg>
-              <Link
-                href="/teste"
-                className={`${
-                  !open && "hidden"
-                } origin-left duration-200 text-xl`}
-              >
-                Teste
-              </Link>
+                <svg
+                  className="filter fill-blue-900 w-8 h-8"
+                  fill="#000000"
+                  viewBox="0 0 1920 1920"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <path
+                      d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
+                      fillRule="evenodd"
+                    ></path>{" "}
+                  </g>
+                </svg>
+                <Link
+                  href="/teste"
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-200 text-xl`}
+                >
+                  Email
+                </Link>
+              </div>
             </div>
           </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 }
