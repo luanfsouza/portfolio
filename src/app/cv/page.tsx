@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 
 export default function Cv() {
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen md:p-10 md:pl-20">
        
-      <div className="m-auto container lg:pr-20  md:pt-20 md:pr-20 md:pb-20 md:pl-40 md:border-2 lg:border-2 border-blue-800 rounded-2xl ">
+      <div className="m-auto container lg:pr-20 md:p-10 md:border-2 md:boder-2 lg:border-2 border-blue-800 rounded-2xl ">
         <h1 className="text-white text-2xl md:text-4xl lg:text-4xl mb-6 font-bold">
           Luan Ferreira Souza
         </h1>

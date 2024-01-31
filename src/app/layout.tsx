@@ -19,13 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <meta
-          name="google-site-verification"
-          content="M3wr11_c7NpzVCvIx-OM7yMI_k2v3h0qCOW_anR1fcY"
+        name="google-site-verification"
+        content="M3wr11_c7NpzVCvIx-OM7yMI_k2v3h0qCOW_anR1fcY"
       />
       <body className={inter.className}>
         <Sidebar />
         <div className="flex h-screen">
-          <main className="h-full m-auto container w-full lg:pr-20  md:pt-20 md:pr-20 md:pb-20 md:pl-40 p-5 py-10 pl-20">
+          <main className="h-full m-auto container w-full  md:p-0  lg:pr-20 p-5 py-10 pl-20">
             {children}
           </main>
         </div>
