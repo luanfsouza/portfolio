@@ -119,7 +119,7 @@ export default function Home() {
           <h1 className="text-2xl text-white">Lastest Posts</h1>
         </div>
       </div>
-      <div className="container-myprojects lg:p-10 lg:pl-22 lg:pr-5 lg:pl-5 p-10 pt-5 flex flex-col mt-14 border-2 rounded-2xl border-blue-950">
+      <div className="container-myprojects lg:p-10 lg:pl-22 lg:pr-5 lg:pl-5 p-10 pt-5 flex flex-col mt-14 border-2  rounded-2xl  border-blue-950">
         
         <div className="lg:flex mb-5 ">
           <div className="flex lg:pt-10 flex-col flex-1 text-start pr-20">
