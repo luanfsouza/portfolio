@@ -16,7 +16,7 @@ export default function Sidebar() {
         } bg-dark-purple h-screen  pt-8 relative duration-300 border-x-2 border-x-blue-950`}
       >
         <svg
-          className={`bg-white filter fill-blue-900 h-8" absolute cursor-pointer right-3 top-9 w-7 border-dark-purple                                                                                                                        
+          className={`bg-white filter fill-white h-8" absolute cursor-pointer right-3 top-9 w-7 border-dark-purple                                                                                                                        
            border-2 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
           viewBox="0 0 24 24"
@@ -67,13 +67,16 @@ export default function Sidebar() {
         </div>
         <ul className="pt-6">
           <li className="flex flex-col rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4">
-            <div
+            <Link
+              href="/"
               className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5  ${
                 pathname === "/" ? "bg-gray-800 " : "text-white"
               } ${open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"}`}
             >
               <svg
-                className="filter fill-blue-900 w-8 h-8"
+                className={` filter w-8 h-8 ${
+                  pathname === "/" ? "fill-blue-500" : "fill-white"
+                }`}
                 version="1.1"
                 id="Capa_1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,8 +103,7 @@ export default function Sidebar() {
                   </g>{" "}
                 </g>
               </svg>
-              <Link
-                href="/"
+              <span
                 className={`${
                   !open && "hidden"
                 } origin-left duration-200 text-xl ${
@@ -109,17 +111,20 @@ export default function Sidebar() {
                 }`}
               >
                 Home
-              </Link>
-            </div>
+              </span>
+            </Link>
             <div className="flex flex-col w-full items-center">
               <div className="flex w-full items-center gap-10 mb-5"></div>
-              <div
+              <Link
+                href="/about"
                 className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5  ${
-                  pathname === "/About me" ? "bg-gray-800 " : "text-white"
+                  pathname === "/about" ? "bg-gray-800 " : "text-white"
                 } ${open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"}`}
               >
                 <svg
-                  className="filter fill-blue-900 w-8 h-8"
+                  className={` filter w-8 h-8 ${
+                    pathname === "/about" ? "fill-blue-500" : "fill-white"
+                  }`}
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -163,22 +168,26 @@ export default function Sidebar() {
                     ></path>{" "}
                   </g>
                 </svg>
-                <Link
-                  href="/about"
+                <span
                   className={`${
                     !open && "hidden"
-                  } origin-left duration-200 text-xl`}
+                  } origin-left duration-200 text-xl ${
+                    pathname === "/about" ? "text-blue-500" : "text-white"
+                  }`}
                 >
                   About me
-                </Link>
-              </div>
-              <div
+                </span>
+              </Link>
+              <Link
+                href="/cv"
                 className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5  ${
                   pathname === "/cv" ? "bg-gray-800 " : "text-white"
                 } ${open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"}`}
               >
                 <svg
-                  className="filter fill-blue-900 w-8 h-8"
+                  className={` filter w-8 h-8 ${
+                    pathname === "/cv" ? "fill-blue-500" : "fill-white"
+                  }`}
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -200,22 +209,26 @@ export default function Sidebar() {
                     ></path>{" "}
                   </g>
                 </svg>
-                <Link
-                  href="/cv"
+                <span
                   className={`${
                     !open && "hidden"
-                  } origin-left duration-200 text-xl`}
+                  } origin-left duration-200 text-xl ${
+                    pathname === "/cv" ? "text-blue-500" : "text-white"
+                  }`}
                 >
                   CV
-                </Link>
-              </div>
-              <div
+                </span>
+              </Link>
+              <Link
+                href="/projects"
                 className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5  ${
                   pathname === "/projects" ? "bg-gray-800 " : "text-white"
                 } ${open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"}`}
               >
                 <svg
-                  className="filter fill-blue-900 w-8 h-8"
+                  className={` filter w-8 h-8 ${
+                    pathname === "/projects" ? "fill-blue-500" : "fill-white"
+                  }`}
                   fill="#000000"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -231,25 +244,28 @@ export default function Sidebar() {
                     <path d="M20,6H13.41L11,3.59A2,2,0,0,0,9.59,3H4A2,2,0,0,0,2,5V19a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V8A2,2,0,0,0,20,6Zm-9.29,8.29a1,1,0,0,1,0,1.42,1,1,0,0,1-1.42,0l-2-2a1,1,0,0,1,0-1.42l2-2a1,1,0,0,1,1.42,1.42L9.41,13Zm6-.58-2,2a1,1,0,0,1-1.42,0,1,1,0,0,1,0-1.42L14.59,13l-1.3-1.29a1,1,0,0,1,1.42-1.42l2,2A1,1,0,0,1,16.71,13.71Z"></path>
                   </g>
                 </svg>
-                <Link
-                  href="/projects"
+                <span
                   className={`${
                     !open && "hidden"
-                  } origin-left duration-200 text-xl`}
+                  } origin-left duration-200 text-xl ${
+                    pathname === "/projects" ? "text-blue-500" : "text-white"
+                  }`}
                 >
                   Projects
-                </Link>
-              </div>
+                </span>
+              </Link>
             </div>
             <div className="flex flex-col w-full items-center">
-              <div className="flex w-full items-center gap-10 mb-5"></div>
-              <div
-                className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5   ${
+              <div className="flex w-full items-center gap-10 mb-5 "></div>
+              <Link
+                href="https://github.com/luanfsouza"
+                target="_blank"
+                className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5 cursor-pointer bg-red-400  ${
                   open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"
                 }`}
               >
                 <svg
-                  className="filter fill-blue-900 w-8 h-8"
+                  className="filter fill-white w-8 h-8"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="#000000"
@@ -267,23 +283,21 @@ export default function Sidebar() {
                     <path d="M12,2A10,10,0,0,0,8.84,21.5c.5.08.66-.23.66-.5V19.31C6.73,19.91,6.14,18,6.14,18A2.69,2.69,0,0,0,5,16.5c-.91-.62.07-.6.07-.6a2.1,2.1,0,0,1,1.53,1,2.15,2.15,0,0,0,2.91.83,2.16,2.16,0,0,1,.63-1.34C8,16.17,5.62,15.31,5.62,11.5a3.87,3.87,0,0,1,1-2.71,3.58,3.58,0,0,1,.1-2.64s.84-.27,2.75,1a9.63,9.63,0,0,1,5,0c1.91-1.29,2.75-1,2.75-1a3.58,3.58,0,0,1,.1,2.64,3.87,3.87,0,0,1,1,2.71c0,3.82-2.34,4.66-4.57,4.91a2.39,2.39,0,0,1,.69,1.85V21c0,.27.16.59.67.5A10,10,0,0,0,12,2Z"></path>{" "}
                   </g>
                 </svg>
-                <Link
-                  href="https://github.com/luanfsouza"
-                  target="_blank"
+                <span
                   className={`${
                     !open && "hidden"
                   } origin-left duration-200 text-xl`}
                 >
                   Github
-                </Link>
-              </div>
+                </span>
+              </Link>
               <div
                 className={`rounded-xl p-2 flex w-full items-center gap-10 mb-5   ${
                   open ? "p-2 pl-14 duration-300" : "pl-0 justify-center"
                 }`}
               >
                 <svg
-                  className="filter fill-blue-900 w-8 h-8"
+                  className="filter fill-white w-8 h-8"
                   fill="#000000"
                   height="200px"
                   width="200px"
@@ -319,7 +333,7 @@ export default function Sidebar() {
                 }`}
               >
                 <svg
-                  className="filter fill-blue-900 w-8 h-8"
+                  className="filter fill-white w-8 h-8"
                   fill="#000000"
                   viewBox="0 0 32 32"
                   version="1.1"
@@ -353,7 +367,7 @@ export default function Sidebar() {
                 }`}
               >
                 <svg
-                  className="filter fill-blue-900 w-8 h-8"
+                  className="filter fill-white w-8 h-8"
                   fill="#000000"
                   viewBox="0 0 1920 1920"
                   xmlns="http://www.w3.org/2000/svg"

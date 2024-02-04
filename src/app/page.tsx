@@ -98,10 +98,10 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <div className="container-about p-10 pl-22 pr-5 pl-5 flex flex-col mt-14 border-2 rounded-2xl border-blue-950">
+      <div className="container-about p-10 pl-22 pr-5 pl-5 flex flex-col lg:mt-14 md:mt-10 mt-4 border-2 rounded-2xl border-blue-950">
         <h1 className="text-2xl text-white text mb-5">About me</h1>
-        <p>
-          Hello, my name is Erick Nathan, I am a dedicated front-end developer,
+        <p className="lg:text-base md:text-base text-sm">
+          Hello, my name is Luan Ferreira, I am a dedicated back-end developer,
           with extensive experience in technologies such as NodeJS and ReactJS,
           and a track record with rotable clients such as Uber Chip, Correios
           Celular and arrefour, specializing in robust and user-friendly
@@ -136,13 +136,13 @@ export default function Home() {
             <h2 className="text-white">Download CV</h2>
           </button>
         </div>
-        <div className="p-14 border-2 rounded-2xl border-blue-950 flex-1">
+        <div className="md:p-14 lg:p-14 p-14 border-2 rounded-2xl border-blue-950 flex-1">
           <h1 className="text-2xl text-white">Lastest Posts</h1>
         </div>
       </div>
-      <div className="container-myprojects lg:p-10 lg:pl-22 lg:pr-5 lg:pl-5 p-10 pt-5 flex flex-col mt-14 border-2  rounded-2xl  border-blue-950">
+      <div className="container-myprojects lg:p-10 md:p-10 p-3 lg:pl-22 lg:pr-5 lg:pl-5  pt-5 flex flex-col mt-14 border-2  rounded-2xl  border-blue-950 lg:text-base md:text-base text-sm">
         <div className="lg:flex mb-5 ">
-          <div className="flex lg:pt-10 flex-col flex-1 text-start pr-20">
+          <div className="flex lg:pt-10 flex-col flex-1 text-start lg:pr-20 md:pr-20 ">
             <h2 className="text-white mb-5 text-2xl">Easy Aluga</h2>
             <p className="mb-5 lg:mb-0">
               A white-label application to rent any behicle, developed during
@@ -150,7 +150,7 @@ export default function Home() {
             </p>
           </div>
           <div
-            className={`flex-1 lg:h-fit md:h-72 h-40 rounded-2xl bg-red-500`}
+            className={`flex-1 lg:h-fit md:h-72 h-40 rounded-2xl`}
           >
             <Image
               className={`
@@ -170,7 +170,7 @@ export default function Home() {
         </div>
 
         <div className="lg:flex lg:flex-row mb-5">
-          <div className="flex lg:pt-10 flex-col flex-1 text-start pr-20">
+          <div className="flex lg:pt-10 flex-col flex-1 text-start lg:pr-20 md:pr-20">
             <h2 className="text-white mb-5 text-2xl">Easy Aluga</h2>
             <p className="mb-5 lg:mb-0">
               A white-label application to rent any behicle, developed during
@@ -178,7 +178,7 @@ export default function Home() {
             </p>
           </div>
           <div
-            className={`flex-1 lg:h-fit md:h-72 h-40 rounded-2xl bg-red-500`}
+            className={`flex-1 lg:h-fit md:h-72 h-40 rounded-2xl`}
           >
             <Image
               className={`
@@ -197,7 +197,7 @@ export default function Home() {
           </div>
         </div>
         <div className="lg:flex mb-5">
-          <div className="flex lg:pt-10 flex-col flex-1 text-start pr-20">
+          <div className="flex lg:pt-10 flex-col flex-1 text-start lg:pr-20 md:pr-20">
             <h2 className="text-white mb-5 text-2xl">Easy Aluga</h2>
             <p className="mb-5 lg:mb-0">
               A white-label application to rent any behicle, developed during
