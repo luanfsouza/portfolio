@@ -4,7 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
-  const skills = [{ title: "React" }, { title: "React" }, { title: "React" }];
+  const skills = [
+    { title: "React" },
+    { title: "React" },
+    { title: "React" },
+    { title: "React" },
+    { title: "React" },
+    { title: "React" },
+    { title: "React" },
+    { title: "React" },
+  ];
   const experiences = [
     {
       title: "Pagtel",
@@ -46,35 +55,47 @@ export default function Home() {
   };
   return (
     <div className="container-main flex flex-col h-full md:p-16 md:pl-32">
-      <div className="container-perfil flex gap-10 pt-5 pb-5">
-        <Image
-          src="/perfil.jpg"
-          alt="profile"
-          height={500}
-          width={500}
-          quality={100}
-          className="rounded-2xl w-20 h-20 md:w-32 md:h-32"
-        />
-        <div>
-          <h1 className="md:text-2xl ld:text-5xl text-white mb-2">
-            Luan Ferreira
-          </h1>
-          <p className="lg:text-2xl mb-2">
-            Back-end developer @
-            <Link className="text-blue-800" href="/#">
-              Github
-            </Link>
-          </p>
-          <div className="flex pr-5 pl-5">
-            {skills.map((item, index) => (
-              <h2
-                key={index}
-                className="text-white mr-5 md:text-sm lg:text-2xl bg-gray-800 p-2 pl-5 pr-5 rounded-2xl"
-              >
-                {item.title}
-              </h2>
-            ))}
+      <div className="container-perfil grid grid-cols-1 gap-4 md:gap-4 lg:gap-10 pt-5 pb-5">
+        <div className="flex gap-2 md:gap-5 lg:gap-5">
+          <Image
+            src="/perfil.jpg"
+            alt="profile"
+            height={500}
+            width={500}
+            quality={100}
+            className={`rounded-2xl w-20 h-20 md:w-32 md:h-32`}
+          />
+          <div className="">
+            <h1 className="md:text-2xl lg:text-5xl text-lg text-white md:mb-2 lg:mb-2">
+              Luan Ferreira
+            </h1>
+            <p className="lg:text-2xl md:text-2xl text-sm mb-2">
+              Back-end developer @
+              <Link className="text-blue-800 lg:text-2xl md:text-2xl text-" href="/#">
+                Github
+              </Link>
+            </p>
+            <div className="flex-wrap hidden md:flex lg:flex md:gap-2 lg:gap-5 gap-2">
+              {skills.map((item, index) => (
+                <h2
+                  key={index}
+                  className="text-white md:text-sm lg:text-2xl bg-gray-800 p-2 pl-5 pr-5 rounded-2xl w-fit"
+                >
+                  {item.title}
+                </h2>
+              ))}
+            </div>
           </div>
+        </div>
+        <div className="col-span-2 flex-wrap flex md:gap-2 gap-2 md:hidden lg:hidden">
+          {skills.map((item, index) => (
+            <h2
+              key={index}
+              className="text-white md:text-sm text-xs lg:text-2xl bg-gray-800 p-2 px-2 rounded-2xl w-fit"
+            >
+              {item.title}
+            </h2>
+          ))}
         </div>
       </div>
       <div className="container-about p-10 pl-22 pr-5 pl-5 flex flex-col mt-14 border-2 rounded-2xl border-blue-950">
@@ -88,8 +109,8 @@ export default function Home() {
           optimized performance.
         </p>
       </div>
-      <div className="container-experiencesAndPosts lg:flex mt-14 gap-8">
-        <div className="p-14 border-2 rounded-2xl border-blue-950 flex-1">
+      <div className="container-experiencesAndPosts lg:flex flex flex-col mt-14 gap-8">
+        <div className="md:p-14 lg:p-14 p-3 border-2 rounded-2xl border-blue-950 flex-1">
           <h1 className="text-2xl text-white mb-6">Experiences</h1>
           <div>
             {experiences.map((item, index) => (
@@ -120,7 +141,6 @@ export default function Home() {
         </div>
       </div>
       <div className="container-myprojects lg:p-10 lg:pl-22 lg:pr-5 lg:pl-5 p-10 pt-5 flex flex-col mt-14 border-2  rounded-2xl  border-blue-950">
-        
         <div className="lg:flex mb-5 ">
           <div className="flex lg:pt-10 flex-col flex-1 text-start pr-20">
             <h2 className="text-white mb-5 text-2xl">Easy Aluga</h2>
@@ -148,9 +168,9 @@ export default function Home() {
             />
           </div>
         </div>
-        
+
         <div className="lg:flex lg:flex-row mb-5">
-        <div className="flex lg:pt-10 flex-col flex-1 text-start pr-20">
+          <div className="flex lg:pt-10 flex-col flex-1 text-start pr-20">
             <h2 className="text-white mb-5 text-2xl">Easy Aluga</h2>
             <p className="mb-5 lg:mb-0">
               A white-label application to rent any behicle, developed during
@@ -175,9 +195,7 @@ export default function Home() {
               quality={100}
             />
           </div>
-          
         </div>
-{/* dddddddddddddddddddddddddddddd */}
         <div className="lg:flex mb-5">
           <div className="flex lg:pt-10 flex-col flex-1 text-start pr-20">
             <h2 className="text-white mb-5 text-2xl">Easy Aluga</h2>
